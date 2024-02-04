@@ -1048,6 +1048,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				ImGui::SliderFloat3("scale", &cameraTransform.scale.x, -10.0f, 10.0f);
 				ImGui::TreePop();
 			}
+			ImGui::SliderFloat3("LightData", &directionalLightData->direction.x, -1.0f, 1.0f);
 			ImGui::Checkbox("useMonsterBall", &useMonsterBall);
 			ImGui::Checkbox("useBillboard", &useBillboard);
 			ImGui::ColorEdit4("color", &materialData->color.x);
