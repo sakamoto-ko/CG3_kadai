@@ -46,6 +46,18 @@ struct Transform {
 	Vector3 translate;
 };
 
+struct Material {
+	Vector4 color;
+	int32_t enableLighting;
+};
+
+struct DirectionalLight
+{
+	Vector4 color;
+	Vector3 direction;
+	float intensity;
+};
+
 struct Sphere {
 	Vector3 center;//!<中心点
 	float radius;//!<半径

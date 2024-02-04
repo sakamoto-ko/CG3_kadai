@@ -6,6 +6,13 @@ struct TransformationMatrix
     float32_t4x4 World;
 };
 
+struct DirectionalLight
+{
+    float32_t4 color;
+    float32_t3 direction;
+    float intensity;
+};
+
 StructuredBuffer<TransformationMatrix> gTransformationMatrices : register(t0);
 
 struct VertexShaderInput
@@ -21,5 +28,6 @@ VertexShaderOutput main(VertexShaderInput input, uint32_t instanceId : SV_Instan
     output.position = mul(input.position, gTransformationMatrices[instanceId].WVP);
     output.texcoord = input.texcoord;
     output.normal = normalize(mul(input.normal, (float32_t3x3) gTransformationMatrices[instanceId].World));
+    //output.worldPosition = mul(input.position, gTransformationMatrices.World).xyz;
     return output;
 }
